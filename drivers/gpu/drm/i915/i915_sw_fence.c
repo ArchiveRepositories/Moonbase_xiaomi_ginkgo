@@ -30,7 +30,9 @@ static void *i915_sw_fence_debug_hint(void *addr)
 	return (void *)(((struct i915_sw_fence *)addr)->flags & I915_SW_FENCE_MASK);
 }
 
-static struct debug_obj_descr i915_sw_fence_debug_descr = {
+#ifdef CONFIG_DRM_I915_SW_FENCE_DEBUG_OBJECTS
+
+static const struct debug_obj_descr i915_sw_fence_debug_descr = {
 	.name = "i915_sw_fence",
 	.debug_hint = i915_sw_fence_debug_hint,
 };
