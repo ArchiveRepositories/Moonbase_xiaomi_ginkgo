@@ -46,8 +46,8 @@ static void irq_sim_handle_irq(struct irq_work *work)
  * irq_sim_init - Initialize the interrupt simulator: allocate a range of
  *                dummy interrupts.
  *
- * @sim:        The interrupt simulator object to initialize.
- * @num_irqs:   Number of interrupts to allocate
+ * @fwnode:     struct fwnode_handle to be associated with this domain.
+ * @num_irqs:   Number of interrupts to allocate.
  *
  * Returns 0 on success and a negative error number on failure.
  */
@@ -107,7 +107,7 @@ static void devm_irq_sim_release(struct device *dev, void *res)
  * irq_sim_init - Initialize the interrupt simulator for a managed device.
  *
  * @dev:        Device to initialize the simulator object for.
- * @sim:        The interrupt simulator object to initialize.
+ * @fwnode:     struct fwnode_handle to be associated with this domain.
  * @num_irqs:   Number of interrupts to allocate
  *
  * Returns 0 on success and a negative error number on failure.
